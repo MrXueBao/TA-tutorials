@@ -267,8 +267,6 @@ To learn better coding style, you may refer to [this tutorial](https://eecs280st
 
 ## More References
 
----
-
 I took references from the below articles and tutorials. If you're interested or want to learn more about how to set up your developing environment, please refer to the following links.
 
 1. [MIT missing semester of your CS education](https://missing.csail.mit.edu)
