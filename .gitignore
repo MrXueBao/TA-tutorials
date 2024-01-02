@@ -2,3 +2,6 @@
 **/*.pdf
 **/*.html
 mygithub.css
+**/.vscode
+RC0/.vscode/settings.json
+RC0/.vscode
