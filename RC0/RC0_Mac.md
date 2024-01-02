@@ -32,7 +32,11 @@ Homebrew is a package manager for MacOS. It is similar to `apt` on Linux and can
 /bin/bash -c "$(curl -fsSL  https://gitee.com/ineo6/homebrew-install/raw/master/install.sh)"
 ```
 
-Note that this command is installed from a mirror in China. You may also refer to [tuna mirror](https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/) for more information.
+Note that this command is installed from a mirror in China. You may also refer to [tuna mirror](https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/) for more information. The official installation command is as follows:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
 Then, you may run the following command to verify that it is installed, your version may be different:
 
