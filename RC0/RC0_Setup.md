@@ -1,4 +1,4 @@
-# RC0 - The missing lesson
+# VE280 2024SP RC0 - The missing lesson
 
 In this course, often only the programming part is emphasized and the basic setup of our environment is neglected. For beginners, they'll feel as if they're missing something. This recitation class is meant to fill that gap. The tools we set up here will be used throughout the course and even in the future.
 
@@ -294,7 +294,7 @@ You may also refer to the lecture slides for these rules.
 In VSCode, you may right click and choose `Format Document` to format your code. Also, the default keybinding for formatting is `Shift + Alt + f`.
 
 <!-- markdownlint-disable MD033 -->
-To learn better coding style, you may refer to <a href = "https://eecs280staff.github.io/tutorials/style_guide.html" style = "text-decoration: underline;">this tutorial</a> for good habits or <a href = "https://github.com/trekhleb/state-of-the-art-shitcode" style = "text-decoration: underline;">this page</a> for bad habits that you should avoid.
+To learn better coding style, you may refer to <a href = "https://eecs280staff.github.io/tutorials/style_guide.html" style = "text-decoration: underline;">this tutorial</a> for good habits or <a href = "https://github.com/trekhleb/state-of-the-art-shitcode" style = "text-decoration: underline;">this page</a> for bad habits that you should avoid. It's also worth noting that the coding style of ChatGPT is good.
 <!-- markdownlint-enable MD033 -->
 
 ## More References
