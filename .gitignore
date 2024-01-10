@@ -1,7 +1,7 @@
 **/.DS_Store
 **/*.pdf
 **/*.html
-**/*.png
+# **/*.png
 mygithub.css
 **/.vscode
 RC0/.vscode/settings.json
