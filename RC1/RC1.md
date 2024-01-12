@@ -76,13 +76,13 @@ Pay attention to the long format of `ls`:
 - `touch <file>`: create an empty file specified by `<file>`
 - `rm <file>`: remove a file or directory specified by `<file>`
   - `rm -r <file>`: remove a directory recursively
-  **Necessary for removing non-empty folders**
+    **Necessary for removing non-empty folders**
   - `rm -i <file>`: ask for confirmation before removing a file or directory
   - `rm -f <file>`: force remove a file or directory
-  **This can be dangerous**
+    **This can be dangerous**
 - `cp <source> <destination>`: copy a file or directory from `<source>` to `<destination>`
   - `cp -r <source> <destination>`: copy a directory recursively
-  **Necessary for copying non-empty folders**
+    **Necessary for copying non-empty folders**
 - `mv`: move a file or directory or rename a file
   - `mv <file1> <file2>`: rename a file or directory from `<file1>` to `<file2>`
   - `mv <file> <directory>`: move a file or directory to a directory
@@ -98,7 +98,7 @@ These commands are necessary as well and you may encounter them in exams.
   - `less` is a pager, which means it only loads a part of the file at a time
   - quit `less` by pressing `q`
   - supports `vim` key bindings, which I introduced in RC0
-  **It's really useful to learn `vim` key bindings**
+    **It's really useful to learn `vim` key bindings**
 - `diff <file1> <file2>`: compare two files
   - `diff` is a tool to compare two files line by line
   - `diff` is a very useful tool when you want to check the difference between two files, especially when you want to check the difference between your output and the standard output. This is the most useful tool in this course and for your projects, from my perspective.
@@ -108,14 +108,14 @@ These commands are necessary as well and you may encounter them in exams.
   - Also, you may refer to a VSCode extension called `Partial Diff` for a better experience
 - `nano`, `gedit`, `vim`, `emacs`: text editors
   - the command `code` can be directly used in shell to launch VSCode
-  e.g. `code <file>` or `code <directory>`
+    e.g. `code <file>` or `code <directory>`
 - Auto completion
   - press `Tab` to auto complete a command or a file name
   - you may use `zsh-autosuggestions` to enable auto suggestions by pressing `->`, which I introduced in RC0
 - `sudo apt-get install <package>`: install a package
   - `sudo` is used to run a command as a super user
   - you may edit read-only files with `sudo`
-  e.g. `sudo vim /etc/apt/sources.list` when changing the mirror source of `apt-get`
+    e.g. `sudo vim /etc/apt/sources.list` when changing the mirror source of `apt-get`
   - `apt-get` is a package manager, equivalent to `apt`
 
 You may find these commands frustrating at first, but you will get used to them after some practice. Consult the Internet or even ChatGPT, they're good at these detailed questions. For your daily workflow, you may use command line tools like `ranger` or `nnn` to manage files and directories, which does these commands by custom key bindings and is more efficient and convenient than GUI. You may refer to my RC0 for more details.
