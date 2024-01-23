@@ -19,9 +19,21 @@ Basic operators:
 
 Control flow:
 
-- `if`-`else` statements.
+- `if`-`else` / `switch`-`case` statements.
 - `while` / `for` loops.
-- `switch/case` statements.
+
+### Range-based `for` loop (Won't be covered in exams)
+
+Range-based `for` loop is a feature added in C++11 to iterate over containers. It provides a simpler and more readable way to iterate over elements of an array, vector, list, or any other container that supports the concept of iterators, namely the `begin()` and `end()` functions. The following is an example:
+
+```cpp
+std::vector<int> numbers = {1, 2, 3, 4, 5};
+for(int num : numbers) { // Iterating over a STL container
+}
+int arr[] = {1, 2, 3, 4, 5};
+for(int num : arr) { // Iterating over an array
+}
+```
 
 ### lvalue and rvalue
 
