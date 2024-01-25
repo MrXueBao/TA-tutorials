@@ -105,7 +105,7 @@ r = 1919810; // a is now 1919810
 - A reference must be initialized when it is declared.
 - After initialization, a reference cannot be changed to refer to another variable.
 
-Try to find the final value of all variables:
+A small exercise:
 
 ```cpp
 int x = 0;
@@ -139,6 +139,8 @@ When a function is called, the parameters are passed to the function. There are 
 
 - **Pass by value**: the value of the parameter is copied to the function. Modifying the parameter inside the function will not affect the original variable.
 - **Pass by reference**: the address of the parameter is passed to the function. Modifying the parameter inside the function will affect the original variable.
+
+A small exercise:
 
 ```cpp
 void f(int x, int &y, int *z) {
@@ -196,4 +198,147 @@ s1.gpa = 4.0;
 Student s2 = {"Bob", 1919810, 3.9}; // another way to initialize
 Student s3 = &s1; // s3 is a pointer to s1
 s3->name = "Bob"; // access the members of struct pointer using ->
+```
+
+## Const Qualifiers
+
+Const qualifiers are used to specify a variable that cannot be modified. There are two ways to use const qualifiers:
+
+- Data Variables
+- Function Parameters
+- Pointers
+- References
+- Class member functions (This will be covered after midterm)
+
+### Const Data Variables
+
+Basic syntax:
+
+```cpp
+const data_type variable_name = value;
+```
+
+Properties:
+
+- The value of a const variable cannot be changed after initialization.
+
+```cpp
+const int MAX_SIZE = 100;
+MAX_SIZE = 200; // Error
+```
+
+- A const variable must be initialized when it is declared.
+
+```cpp
+const int MAX_SIZE; // Error
+```
+
+This practice greatly improves the readability of your code. It also prevents you from accidentally modifying the value of a variable.
+
+Also, if you want to modify the size of an array, just modify the value of `MAX_SIZE` and recompile your code. You don't need to modify the size of every array in your code.
+
+```cpp
+const int MAX_SIZE = 100; // Modifying this line enables you to resize all arrays
+int a[100] // Feasible, but not recommended
+int a[MAX_SIZE] // Feasible, recommended
+int b[MAX_SIZE]
+```
+
+### Const References
+
+Basic syntax:
+
+```cpp
+const data_type &reference_name = variable_name;
+const int &r = a;
+```
+
+Advantages:
+
+- **Cannot be modified**.
+  Recall that the parameter can be passed to functions by reference to avoid copying large objects. However, if you don't want the function to modify the parameter, you can pass it by const reference.
+
+```cpp
+Student s1 = {"Alice", 12345, 1.0};
+// Recall the struct Student
+void f(const Student &s) {
+    s.name = "Alice";
+    s.gpa = 4.0;
+    cout << s.gpa << endl; // 4.0
+}
+```
+
+- **Can be initialized by rvalues**.
+  Recall that a reference must be initialized when it is declared. However, a const reference can be initialized by rvalues.
+
+```cpp
+const int &cref = 1; // OK
+int &ref = 1; // Error
+```
+
+For function parameters, it is recommended to pass by const reference if the parameter is not modified inside the function. The type compatibility is as follows:
+
+- `const type &` to `type &` is not allowed.
+- `type &` to `const type &` is allowed.
+- `const type *` to `type *` is not allowed.
+- `type *` to `const type *` is allowed.
+
+A small exercise:
+
+```cpp
+void const_reference_test(const int &r) {}
+void reference_test(int &r) {}
+void pointer_test(int *p) {}
+int main() {
+    int a = 0;
+    const int b = 0;
+    int *p = &a;
+    const int *cp = &a;
+
+    // Which of the following function calls are valid?
+    const_reference_test(a);
+    const_reference_test(b);
+    const_reference_test(*p);
+    const_reference_test(*cp);
+    reference_test(a);
+    reference_test(b); // wrong
+    reference_test(*p);
+    reference_test(*cp); // wrong
+    pointer_test(p);
+    pointer_test(cp); // wrong
+}
+```
+
+### Const Pointers
+
+The rule for `const`: `const` applies to the thing on its left. If there is nothing on its left, it applies to the thing on its right.
+
+For const pointers, there are two cases:
+
+- Pointer to `const`: Here the pointer can point to arbitrary variables, but the value of the variable cannot be modified.
+- `const` pointer: Here the pointer can only point to one variable, but the value of the variable can be modified.
+
+The two cases can be combined.
+
+```cpp
+const int* a                 // a pointer to a constant integer
+int const * a                // a pointer to a constant integer
+int* const a                 // a constant pointer to an integer
+const int* const a           // a constant pointer to a constant integer
+int const * const a          // a constant pointer to a constant integer
+```
+
+These declarations are all valid.
+
+### typedef
+
+`typedef` is used to create an alias for a data type. It is often used to simplify the declaration of complex data types. The motivation is just like using reference variables.
+
+```cpp
+typedef int* int_ptr;
+// int_ptr is an alias for int*
+typedef const int_ptr const_int_ptr;
+// the defined alias can be used in other typedef
+typedef const int* const_int_ptr;
+// All in one line
 ```
