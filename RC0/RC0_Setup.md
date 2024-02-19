@@ -8,7 +8,27 @@ In this course, we'll be using Linux to do our programming and learning. Don't w
 
 ### Installation on Windows
 
-You may refer to the following links for installation on Windows:
+For Windows users, you may install Linux using WSL (Windows Subsystem for Linux). Before installing any Linux distributions, you must first enable its optional feature. Open PowerShell as Administrator and run:
+
+```powershell
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
+
+Check if WSL is installed successfully:
+
+```powershell
+wsl -l -v
+```
+
+Then you may install a Linux distribution by running the following command, `Ubuntu` is recommended:
+
+```powershell
+wsl --install -d Ubuntu
+```
+
+Or alternatively you may install it from the Microsoft Store. After the installation, you may open the Ubuntu app and set up your username and password. Then you may proceed to the next step.
+
+You may also refer to the following links for installation on Windows if you encounter any problems:
 
 <!-- - [TechJI-2023 Linux Install Party Guide](https://github.com/TechJI-2023/Linux-Install-Party) - This guide was written by the Tech apartment in Fall 2023. It's not very detailed, but it can still be helpful.
 - [VE280 Tutorials](https://github.com/ve280/tutorials) - This is a tutorial contributed by previous students. It's a bit outdated due to numerous Ubuntu version updates, but it can still be helpful.
@@ -99,10 +119,10 @@ sudo apt install zsh
 
 Note that Mac users already have `zsh` installed by default.
 
-Then you may change your default shell to `zsh` by running the following command:
+Verify the installation by running the following command:
 
 ```bash
-chsh -s $(which zsh)
+zsh --version
 ```
 
 Then you may download oh-my-zsh, a powerful configuration framework for `zsh`, by running the following command:
@@ -112,7 +132,7 @@ sudo apt install git # install git first to download oh-my-zsh
 sh -c "$(curl -fsSL https://gitee.com/shmhlsy/oh-my-zsh-install.sh/raw/master/install.sh)"
 ```
 
-Then restart your terminal and you'll see the difference.
+Follow the prompt and you'll see the difference.
 
 #### Zsh plugins
 
@@ -276,7 +296,7 @@ Since I'm using VSCode, I also recommend you to install some plugins for VSCode 
 - `Reload` - Add a reload button to the status bar. You may click it to reload the window conveniently.
 - `Vim` - This plugin enables vim keybindings in VSCode. It combines the functionality of VSCode and efficiency of vim.
 - `JOJ Tools` - This plugin helps you submit your code to JOJ by one click instead of repeatedly zipping and uploading your files.
-- `Github Copilot` - **The most powerful** plugin I've ever seen. Just activate your github account and verify your identity as a student and you'll be given access to use it free. You may refer to <a href="https://zhuanlan.zhihu.com/p/618772237" style="text-decoration: underline;">this link</a> or other tutorials on zhihu for more details. Once you're approved, you'll receive an email from Github after about 3 days. Copilot is also available in other IDEs like JetBrains IDEs and neovim. **But make sure to check the correctness of code produced by copilot**.
+- `Github Copilot` - <a href="https://zhuanlan.zhihu.com/p/618772237" style="text-decoration: underline;">This is a random link.</a> **Warning: Use of large language models are forbidden in this course!**
 
 ## Reminder on code style
 
@@ -294,7 +314,7 @@ You may also refer to the lecture slides for these rules.
 In VSCode, you may right click and choose `Format Document` to format your code. Also, the default keybinding for formatting is `Shift + Alt + f`.
 
 <!-- markdownlint-disable MD033 -->
-To learn better coding style, you may refer to <a href = "https://eecs280staff.github.io/tutorials/style_guide.html" style = "text-decoration: underline;">this tutorial</a> for good habits or <a href = "https://github.com/trekhleb/state-of-the-art-shitcode" style = "text-decoration: underline;">this page</a> for bad habits that you should avoid. It's also worth noting that the coding style of ChatGPT is good.
+To learn better coding style, you may refer to <a href = "https://eecs280staff.github.io/tutorials/style_guide.html" style = "text-decoration: underline;">this tutorial</a> for good habits or <a href = "https://github.com/trekhleb/state-of-the-art-shitcode" style = "text-decoration: underline;">this page</a> for bad habits that you should avoid.
 <!-- markdownlint-enable MD033 -->
 
 ## More References
@@ -305,6 +325,5 @@ I took references from the below articles and tutorials. If you're interested or
 1. <a href="https://missing.csail.mit.edu" style="text-decoration: underline;">MIT missing semester of your CS education</a>
 2. <a href="https://github.com/PKUFlyingPig/cs-self-learning" style="text-decoration: underline;">CS self learning materials</a>. You may focus on <a href="https://github.com/PKUFlyingPig/cs-self-learning/blob/master/docs/CS学习规划.md" style="text-decoration: underline;">this file</a>.
 3. <a href="https://eecs280staff.github.io/tutorials/" style="text-decoration: underline;">UM EECS280 tutorials</a>
-4. ChatGPT
-5. Github
-6. Platforms like stackoverflow. Be skeptical when viewing articles on CSDN.
+4. Github
+5. Platforms like stackoverflow. Be skeptical when viewing articles on CSDN.
