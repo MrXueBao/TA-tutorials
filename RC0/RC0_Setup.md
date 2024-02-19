@@ -28,22 +28,44 @@ wsl --install -d Ubuntu
 
 Or alternatively you may install it from the Microsoft Store. After the installation, you may open the Ubuntu app and set up your username and password. Then you may proceed to the next step.
 
-You may also refer to the following links for installation on Windows if you encounter any problems:
+For Windows users, you may install Linux using WSL (Windows Subsystem for Linux). Before installing any Linux distributions, you must first enable its optional feature. Open PowerShell as Administrator and run:
+
+```powershell
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
+
+Check if WSL is installed successfully:
+
+```powershell
+wsl -l -v
+```
+
+Then you may install a Linux distribution by running the following command, `Ubuntu` is recommended:
+
+```powershell
+wsl --install -d Ubuntu
+```
+
+Or alternatively you may install it from the Microsoft Store. After the installation, you may open the Ubuntu app and set up your username and password. Then you may proceed to the next step.
+
+You may also also refer to the following links for installation on Windows if you encounter any problems if you encounter any problems:
 
 <!-- - [TechJI-2023 Linux Install Party Guide](https://github.com/TechJI-2023/Linux-Install-Party) - This guide was written by the Tech apartment in Fall 2023. It's not very detailed, but it can still be helpful.
 - [VE280 Tutorials](https://github.com/ve280/tutorials) - This is a tutorial contributed by previous students. It's a bit outdated due to numerous Ubuntu version updates, but it can still be helpful.
 - [UM EECS280 Tutorial](https://eecs280staff.github.io/tutorials/setup_wsl.html) - This is a tutorial written by the EECS280 staff at the University of Michigan. It's very detailed and the whole set of tutorials is very helpful. I recommend you to read through all of them concerning the topics of environment setup.
 - Refer to official documentations. For example, the documentations of wsl and Ubuntu. -->
+
 - <a href="https://github.com/TechJI-2023/Linux-Install-Party" style="text-decoration: underline;">TechJI-2023 Linux Install Party Guide</a> - This guide was written by the Tech apartment in Fall 2023. It's not very detailed, but it can still be helpful.
 - <a href="https://github.com/ve280/tutorials" style="text-decoration: underline;">VE280 Tutorials</a> - This is a tutorial contributed by previous students. It's a bit outdated due to numerous Ubuntu version updates, but it can still be helpful.
 - <a href="https://eecs280staff.github.io/tutorials/setup_wsl.html" style="text-decoration: underline;">UM EECS280 Tutorial</a> - This is a tutorial written by the EECS280 staff at the University of Michigan. It's very detailed and the whole set of tutorials is very helpful. I recommend you to read through all of them concerning the topics of environment setup.
-- Refer to official documentations. For example, the documentations of wsl and Ubuntu.
+- Refer to official documentations. For example, the [manual installation steps for WSL](https://learn.microsoft.com/en-us/windows/wsl/install-manual).
 
 ### Installation on MacOS
 
 Actually, since MacOS is also based on Unix, you can actually do most of your programming on MacOS. However, there are still some inconveniences. For example, you can't use `valgrind`, a memory leak checking tool, on MacOS. Therefore, I recommend you to install Linux on your Mac.
 
 <!-- You may use [OrbStack](https://orbstack.dev) to install Linux virtual machines on your Mac. Just follow the instructions in the software, it is quite simple. The following is a screenshot of OrbStack containing the relevant commands to start a Linux virtual machine: -->
+
 You may use <a href="https://orbstack.dev" style="text-decoration: underline;">OrbStack</a> to install Linux virtual machines on your Mac. Just follow the instructions in the software, it is quite simple. The following is a screenshot of OrbStack containing the relevant commands to start a Linux virtual machine:
 
 <!-- markdownlint-disable MD033 -->
@@ -71,6 +93,7 @@ sudo vim /etc/apt/sources.list
 ```
 
 <!-- 3. Paste the content on [tuna mirror](https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/) to the file and save it. Then run the following command to update the apt source list. -->
+
 3. Paste the content on <a href = "https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/" style = "text-decoration: underline;">tuna mirror</a> to the file and save it. Then run the following command to update the apt source list.
 
 ```bash
@@ -101,6 +124,7 @@ According to my experience, you won't encounter topics concerning dynamic memory
 ### Choose a text editor
 
 <!-- Here I recommend you to use **Visual Studio Code** or **Clion**. Personally I use VSCode and I prefer its versatility, as it can also edit markdown files and latex files. Just choose as you like. I suppose you have already set up your text editor in course VG101 or VG151 and won't talk much about this part. [This](https://eecs280staff.github.io/tutorials/setup_vscode.html) is a tutorial for setting up VSCode for C++ programming in case you need it. -->
+
 Here I recommend you to use **Visual Studio Code** or **Clion**. Personally I use VSCode and I prefer its versatility, as it can also edit markdown files and latex files. Just choose as you like. I suppose you have already set up your text editor in course VG101 or VG151 and won't talk much about this part. <a href="https://eecs280staff.github.io/tutorials/setup_vscode.html" style="text-decoration: underline;">This</a> is a tutorial for setting up VSCode for C++ programming in case you need it.
 
 ## Additional tools (optional)
@@ -120,8 +144,10 @@ sudo apt install zsh
 Note that Mac users already have `zsh` installed by default.
 
 Verify the installation by running the following command:
+Verify the installation by running the following command:
 
 ```bash
+zsh --version
 zsh --version
 ```
 
@@ -132,6 +158,7 @@ sudo apt install git # install git first to download oh-my-zsh
 sh -c "$(curl -fsSL https://gitee.com/shmhlsy/oh-my-zsh-install.sh/raw/master/install.sh)"
 ```
 
+Follow the prompt and you'll see the difference.
 Follow the prompt and you'll see the difference.
 
 #### Zsh plugins
@@ -146,20 +173,14 @@ You may install them by running the following commands:
 
 ```bash
 # zsh-autosuggestions
-git clone https://gitee.com/kanderWall/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://gitee.com/kanderWall/zsh-autosuggestions.git \
+${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # zsh-syntax-highlighting
-git clone https://gitee.com/Annihilater/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://gitee.com/Annihilater/zsh-syntax-highlighting.git \
+${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
-Then open your `~/.zshrc` file and modify the following part:
-
-```bash
-plugins=(
-    ...
-)
-```
-
-to
+Then open your `~/.zshrc` file and modify the `plugins` part to:
 
 ```bash
 plugins=(
@@ -177,6 +198,7 @@ Apart from these two plugins, you may also install other plugins as you like. Fo
 `z` is a plugin that can help you jump to a directory quickly. For example, if you have a directory called `~/Documents/VE280`, you may jump to it by running `z VE280` or even just `280`. Note that you need to cd to the directory at least once before you can jump to it.
 
 <!-- `fzf` is a fuzzy finder. It can help you find files or directories quickly. For example, if you want to find a file called `main.cpp` in the current directory, you may run `fzf` and type `main.cpp`. It will show you all the files that contain `main.cpp` in their names. Then you may choose the file you want to open and the path of the file will be displayed. You may view the detailed usage of `fzf` [by the official github page](https://github.com/junegunn/fzf) or [by this video](https://www.bilibili.com/video/BV1bJ411s74r/?spm_id_from=333.999.0.0&vd_source=74ce1ab72a13dc658c375d2f17941595). -->
+
 `fzf` is a fuzzy finder. It can help you find files or directories quickly. For example, if you want to find a file called `main.cpp` in the current directory, you may run `fzf` and type `main.cpp`. It will show you all the files that contain `main.cpp` in their names. Then you may choose the file you want to open and the path of the file will be displayed. You may view the detailed usage of `fzf` <a href="https://github.com/junegunn/fzf" style="text-decoration: underline;">by the official github page</a> or <a href="https://www.bilibili.com/video/BV1bJ411s74r/?spm_id_from=333.999.0.0&vd_source=74ce1ab72a13dc658c375d2f17941595" style="text-decoration: underline;">by this video</a>.
 
 To install `z`, just add `z` to the `plugins` part in `~/.zshrc`:
@@ -198,6 +220,7 @@ sudo apt install fzf
 #### Zsh themes
 
 <!-- You can customize your zsh theme as well. I'm currently using `powerlevel10k`. You may refer to [the official github page](https://github.com/romkatv/powerlevel10k) or other tutorials for more information. Remember to install the font `MesloLGS NF` or other nerd fonts as well to show the icons correctly. -->
+
 You can customize your zsh theme as well. I'm currently using `powerlevel10k`. You may refer to <a href="https://github.com/romkatv/powerlevel10k" style="text-decoration: underline;"> the official github page</a> or other tutorials for more information. Remember to install the font `MesloLGS NF` or other nerd fonts as well to show the icons correctly.
 
 The theme looks like this and you can customize it by running `p10k configure`:
@@ -218,27 +241,26 @@ After installing so much plugins, you may consult `man` pages to learn more abou
 sudo apt install tldr
 ```
 
-But you need to manually update the `tldr` pages when you install it for the first time. You may run the following command to update the `tldr` pages: 
+But you need to manually update the `tldr` pages when you install it for the first time. You may run the following command to update the `tldr` pages:
 
 ```bash
-tldr --update # or
 tldr -u
 ```
 
-It is likely you see the following error message:
+You may fail to update the `tldr` pages and encounter the following error:
 
 ```bash
 tldr: /root/.local/share/tldr: createDirectory: does not exist (No such file or directory)
 ```
 
-You may solve this problem by running the following command:
+Solve this problem by running the following command:
 
 ```bash
 sudo mkdir -p /root/.local/share/tldr
 tldr --update
 ```
 
-Then you may try if `tldr` works by running `tldr diff` or other commands. It may look like this:
+Try if `tldr` works by running `tldr diff` or other commands. It may look like this:
 
 <!-- markdownlint-disable MD033 -->
 <div align="center">
@@ -275,6 +297,7 @@ vimtutor
 Vim keybindings is widely used. You may install the `vim` plugin in VSCode to enable vim keybindings. Also, files managers like `ranger` support vim keybindings as well. And when you edit files in shell, like `~/.zshrc`, using vim to edit is more efficient than other editors like `nano`.
 
 Also, you may install more advanced versions of `vim` like `neovim`. I'm currently using `lunarvim`, and <!-- markdownlint-disable MD033 -->you may refer to the <a href="https://www.lunarvim.org/docs/installation" style="text-decoration: underline;">official documentation</a> for more information.
+
 <!-- markdownlint-enable MD033 -->
 
 ### VSCode plugins
@@ -297,6 +320,7 @@ Since I'm using VSCode, I also recommend you to install some plugins for VSCode 
 - `Vim` - This plugin enables vim keybindings in VSCode. It combines the functionality of VSCode and efficiency of vim.
 - `JOJ Tools` - This plugin helps you submit your code to JOJ by one click instead of repeatedly zipping and uploading your files.
 - `Github Copilot` - <a href="https://zhuanlan.zhihu.com/p/618772237" style="text-decoration: underline;">This is a random link.</a> **Warning: Use of large language models are forbidden in this course!**
+- `Github Copilot` - <a href="https://zhuanlan.zhihu.com/p/618772237" style="text-decoration: underline;">This is a random link.</a> **Warning: Use of large language models are forbidden in this course!**
 
 ## Reminder on code style
 
@@ -314,7 +338,7 @@ You may also refer to the lecture slides for these rules.
 In VSCode, you may right click and choose `Format Document` to format your code. Also, the default keybinding for formatting is `Shift + Alt + f`.
 
 <!-- markdownlint-disable MD033 -->
-To learn better coding style, you may refer to <a href = "https://eecs280staff.github.io/tutorials/style_guide.html" style = "text-decoration: underline;">this tutorial</a> for good habits or <a href = "https://github.com/trekhleb/state-of-the-art-shitcode" style = "text-decoration: underline;">this page</a> for bad habits that you should avoid.
+To learn better coding style, you may refer to <a href = "https://eecs280staff.github.io/tutorials/style_guide.html" style = "text-decoration: underline;">this tutorial</a> for good habits or <a href = "https://github.com/trekhleb/state-of-the-art-shitcode" style = "text-decoration: underline;">this page</a> for bad habits that you should avoid. It's also worth noting that the coding style of ChatGPT is good.
 <!-- markdownlint-enable MD033 -->
 
 ## More References
@@ -322,6 +346,7 @@ To learn better coding style, you may refer to <a href = "https://eecs280staff.g
 I took references from the below articles and tutorials. If you're interested or want to learn more about how to set up your developing environment, please refer to the following links.
 
 <!-- markdownlint-disable MD033 -->
+
 1. <a href="https://missing.csail.mit.edu" style="text-decoration: underline;">MIT missing semester of your CS education</a>
 2. <a href="https://github.com/PKUFlyingPig/cs-self-learning" style="text-decoration: underline;">CS self learning materials</a>. You may focus on <a href="https://github.com/PKUFlyingPig/cs-self-learning/blob/master/docs/CS学习规划.md" style="text-decoration: underline;">this file</a>.
 3. <a href="https://eecs280staff.github.io/tutorials/" style="text-decoration: underline;">UM EECS280 tutorials</a>
