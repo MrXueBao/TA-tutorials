@@ -118,9 +118,7 @@ These commands are necessary as well and you may encounter them in exams.
     e.g. `sudo vim /etc/apt/sources.list` when changing the mirror source of `apt-get`
   - `apt-get` is a package manager, equivalent to `apt`
 
-You may find these commands frustrating at first, but you will get used to them after some practice. Consult the Internet or even ChatGPT, they're good at these detailed questions. For your daily workflow, you may use command line tools like `ranger` or `nnn` to manage files and directories, which does these commands by custom key bindings and is more efficient and convenient than GUI. You may refer to my RC0 for more details.
-
-But make sure you know how to use these commands, as they will be covered in midterm. Don't worry, you'll get to know them after some practice, like in exercise 1.
+You may find these commands frustrating at first, but you will get used to them after some practice. Make sure you know how to use these commands, as they will be covered in midterm. Don't worry, you'll get familiar with them after some practice, like in exercise 1.
 
 #### I/O Redirection
 
@@ -152,16 +150,16 @@ For the coding part, you may still use VSCode, but make sure you're using `wsl: 
 In this course, we will use `g++` as the compiler. I won't explain the process of compilation, and you may refer to the lecture slides for more details. The general syntax of `g++` is:
 
 ```bash
-g++ [options] <source> -o <executable>
+g++ [options] -o <executable> <source>
 # e.g.
-g++ -std=c++17 -Wall -g -o my_executable my_program.cpp
+g++ -std=c++17 -Wall -g -o my_executable my_program1.cpp my_program2.cpp
 ```
 
 Here the `-std=c++17` option specifies the C++ standard to use, the `-Wall` option enables all warnings, the `-g` option enables debugging information and the `-o` option specifies the name of the executable. Note that the order of the options matters. The `-o` option should be placed before the executable name.
 
 #### Caution
 
-**Note that since this course will use C++17, you should always turn on the `-std=c++17` flag.**
+**Note that since in this course will use C++17, you should always turn on the `-std=c++17` flag.**
 
 ### Makefile
 
