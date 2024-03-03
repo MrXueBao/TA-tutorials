@@ -4,11 +4,11 @@
 
 ### Basic Concepts
 
-Common data types: `int`, `double`, `char`, `bool`, `string`.
+**Common data types**: `int`, `double`, `char`, `bool`, `string`.
 
-Input and output streams: `cin`, `cout`.
+**Input and output streams**: `cin`, `cout`.
 
-Basic operators:
+**Basic operators**:
 
 - Arithmetic operators: `+`, `-`, `*`, `/`, `%`.
 - Comparison operators: `==`, `!=`, `>`, `<`, `>=`, `<=`.
@@ -17,7 +17,7 @@ Basic operators:
 - Assignment operators: `=`, `+=`, `-=`, `*=`, `/=`, `%=`.
 - Increment and decrement operators: `++`, `--`.
 
-Control flow:
+**Control flow**:
 
 - `if`-`else` / `switch`-`case` statements.
 - `while` / `for` loops.
@@ -37,8 +37,8 @@ for(int num : arr) { // Iterating over an array
 
 ### lvalue and rvalue
 
-lvalue: an expression that may appear on the left-hand side or right-hand side of an assignment.
-rvalue: an expression that may **only** appear on the right-hand side of an assignment.
+**lvalue**: an expression that may appear on the left-hand side or right-hand side of an assignment.
+**rvalue**: an expression that may **only** appear on the right-hand side of an assignment.
 
 Examples:
 
@@ -53,7 +53,7 @@ In brief, any non-const variable is an lvalue, and any constant or expression is
 
 ### Function Declaration and Definition
 
-Declaration:
+**Declaration**:
 
 ```cpp
 // return_type function_name(parameter_list);
@@ -63,7 +63,7 @@ void print(string s);
 
 Note that this should come before the function is called.
 
-Definition:
+**Definition**:
 
 ```cpp
 // return_type function_name(parameter_list) {
@@ -154,9 +154,10 @@ int main() {
     int b = 0;
     int c = 0;
     f(a, b, &c);
-    cout << a << endl; // 0
-    cout << b << endl; // 1
-    cout << c << endl; // 1
+    // What are the values of a, b, and c?
+    cout << a << endl;
+    cout << b << endl;
+    cout << c << endl;
 }
 ```
 
@@ -168,11 +169,11 @@ void f(int a[]) {
 }
 ```
 
-Advantage of pass by reference with pointers:
+Advantage of pass by reference with **pointers**:
 
 - You can directly change the value of the variable that the pointer points to. This avoid copying instances of large objects sometimes.
 
-Advantage of pass by reference with references:
+Advantage of pass by reference with **references**:
 
 - More readable and intuitive than pointers.
 
@@ -301,11 +302,11 @@ int main() {
     const_reference_test(*p);
     const_reference_test(*cp);
     reference_test(a);
-    reference_test(b); // wrong
+    reference_test(b);
     reference_test(*p);
-    reference_test(*cp); // wrong
+    reference_test(*cp);
     pointer_test(p);
-    pointer_test(cp); // wrong
+    pointer_test(cp);
 }
 ```
 
@@ -342,3 +343,90 @@ typedef const int_ptr const_int_ptr;
 typedef const int* const_int_ptr;
 // All in one line
 ```
+
+## Procedure Abstraction
+
+### Abstraction
+
+Abstraction is a process of emphasizing the separation of "what" and "how". It helps programmers to use a function without knowing how it is implemented.
+
+It only provides the details that are relevant to the user, and hide the unnecessary details.
+
+```cpp
+// In the header file, the function is declared
+int add(int a, int b);
+
+// In the cpp file, the function is defined/implemented
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+### Motivation
+
+There're usually two roles in programming: the implementer and the user. The implementer is responsible for implementing the function, and the user is responsible for using the function. For the user, the implementation details are not important. They only need to know the interface of the function.
+
+A simple example is that you don't need to know how `std::cout` works. You only need to know it prints things to the console.
+
+### Benefits
+
+- **Simplifies Project**: Helps manage complex project by focusing on the big picture instead of the detailed implementation.
+- **Enhances Readability**: Hides the implementation details, making the code more readable and understandable.
+- **Facilitates Maintenance**: Encapsulates code for easy maintenance and modification.
+
+### Properties of a Good Abstraction
+
+- **Local**: The implementation of an abstraction is independent of any other abstraction implementation.
+
+```cpp
+// Here the user doesn't need to know how multiply is implemented
+int square(int a) {
+    return multiply(a, a);
+}
+```
+
+- **Substitutable**: The implementation of an abstraction can be replaced by another implementation as long as the interface is the same and the implementation is correct.
+
+```cpp
+// Here the implementation of multiply can be replaced by another implementation
+// as long as the abstraction is the same and the implementation is correct
+int multiply(int a, int b) {
+    return a * b;
+    // return b * a; // This is also correct
+}
+```
+
+### Type Signature
+
+The type signature of a function is the function's name, the number of parameters, and the type of each parameter. It is used to declare the function.
+
+```cpp
+int add(int a, int b);
+```
+
+### Specification Comments
+
+Besides the type signature, a function should also have specification comments. There're usually three types of comments:
+
+- **REQUIRES**: Preconditions that must hold, if any.
+- **MODIFIES**: Variables that are modified, if any.
+- **EFFECTS**: What the procedure does given legal inputs.
+
+```cpp
+int positiveAdd(int a, int b);
+// REQUIRES: a > 0, b > 0
+// MODIFIES: None
+// EFFECTS: Returns the sum of a and b
+```
+
+Note that functions with no **REQUIRES** clause is complete, while functions with them are partial.
+
+The convention of abstraction is really important in large projects. In this course, using abstraction to simplify the projects can make your life much easier.
+
+## References
+
+[1] Zhanxun Liu. VE280 RC3. 2023FA.
+
+[2] Weikang Qian. VE280 Lecture 4-6. 2023FA.
+
+[3] Zhongqiang Ren. VE280 Lecture 4-6. 2024SP.
