@@ -259,23 +259,23 @@ Advantages:
 - **Cannot be modified**.
   Recall that the parameter can be passed to functions by reference to avoid copying large objects. However, if you don't want the function to modify the parameter, you can pass it by const reference.
 
-```cpp
-Student s1 = {"Alice", 12345, 1.0};
-// Recall the struct Student
-void f(const Student &s) {
-    s.name = "Alice";
-    s.gpa = 4.0;
-    cout << s.gpa << endl; // 4.0
-}
-```
+  ```cpp
+  Student s1 = {"Alice", 12345, 1.0};
+  // Recall the struct Student
+  void f(const Student &s) {
+      s.name = "Alice";
+      s.gpa = 4.0;
+      cout << s.gpa << endl; // 4.0
+  }
+  ```
 
 - **Can be initialized by rvalues**.
   Recall that a reference must be initialized when it is declared. However, a const reference can be initialized by rvalues.
 
-```cpp
-const int &cref = 1; // OK
-int &ref = 1; // Error
-```
+  ```cpp
+  const int &cref = 1; // OK
+  int &ref = 1; // Error
+  ```
 
 For function parameters, it is recommended to pass by const reference if the parameter is not modified inside the function. The type compatibility is as follows:
 
